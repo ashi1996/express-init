@@ -6,4 +6,8 @@ const router: Router = express.Router();
 router.use('/users', usersRouter);
 router.use('/test', testRouter);
 
+router.use((req,res) => {
+    res.status(404).json({msg: "404 url page not found"})
+})
+
 export const applicationRouter: Router = router;

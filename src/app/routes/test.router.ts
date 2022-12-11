@@ -1,8 +1,10 @@
 import express, { Request, Response, Router, NextFunction } from 'express';
+import {TestMiddleware} from '../middlewares/index';
 const router: Router = express.Router();
 
 
-router.get('/', async (request: Request, response: Response) => {
+router.get('/', TestMiddleware, async (request: Request, response: Response) => {
+   console.log("after mid")
    response.send("test ");
 });
 
